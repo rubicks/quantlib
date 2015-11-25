@@ -1,0 +1,12 @@
+# rubicks/quantlib/.travis.yml
+
+language: objective-c
+
+script:
+  - cd $(mktemp -d)
+  - autoreconf -ivf ${TRAVIS_BUILD_DIR}/QuantLib
+  - ${TRAVIS_BUILD_DIR}/QuantLib/configure
+  - make
+  - make check
+  - make distcheck
+  - echo "big win"
